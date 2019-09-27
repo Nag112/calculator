@@ -1,5 +1,5 @@
 .calc-container {
-  background-color: #282c34;
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,11 +30,11 @@
 {
   display: grid;
   grid-template-columns: auto auto auto auto; 
-  
 }
 button{
   padding:1rem;
-  background-color: aqua;
+  background-color: #666;
+  color:white;
   font-family: Oxygen;
   font-weight: 500;
   font-size: 1.5rem;
