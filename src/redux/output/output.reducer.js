@@ -104,8 +104,8 @@ const outReducer = (state = init_state, action) => {
                     let temp = cal(state);
                     if(temp.output!=="")                                
                     {
-                        temp.output=-1*parseFloat(temp.output)
-                        temp.input=-1*parseFloat(temp.input) 
+                        temp.output=parseFloat(temp.output)*parseFloat(temp.output)
+                        temp.input=parseFloat(temp.input)*parseFloat(temp.input) 
                      }  
                      return {...temp};
                   }
@@ -114,8 +114,8 @@ const outReducer = (state = init_state, action) => {
                     let temp = cal(state);
                     if(temp.output!=="")                                
                     {
-                        temp.output=-1*parseFloat(temp.output)
-                         temp.input=-1*parseFloat(temp.input)  
+                        temp.output=Math.sqrt(parseFloat(temp.output))
+                         temp.input=Math.sqrt(parseFloat(temp.input))  
                         }  
                      return {...temp};
                   }     
