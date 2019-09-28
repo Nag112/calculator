@@ -37,9 +37,9 @@ class App extends Component {
       color="black";
     }
     return (
-      <div className="calc-container" style={{ backgroundColor: bgColor }}>
+      <div className="calc-container" style={{ backgroundColor: bgColor}}>
         <code style={{color:color}}>Simple Calcy</code>
-        <div className="calc-body">
+        <div className="calc-body" style={{borderColor:color }}>
           <div className="toggle">
             <Toggle mode={this.state.night} name="Scientific mode" toggle={this._toggleSciMode} />
             <Toggle mode={this.state.night} name="Night mode" toggle={this._toggleNightmode} />
