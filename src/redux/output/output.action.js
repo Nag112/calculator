@@ -7,3 +7,7 @@ export const pushOutput = sym=>({
     type:'push',
     payload:sym
 })
+export const displayResult = ()=>({
+    type:'result',
+    payload:''
+})

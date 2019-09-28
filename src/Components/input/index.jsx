@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {setOutput} from '../../redux/output/output.action'
+import {setOutput,pushOutput,displayResult} from '../../redux/output/output.action'
 class Input extends Component
 {
     state={
 
     }
-    __handleInput=e=>
-    {
-        this.props.setOutput(e.target.innerHTML)        
-    }
+    __handleInput=e=>this.props.setOutput(e.target.innerHTML)        
+    
+    __handleSymbol=e=>this.props.pushOutput(e.target.innerHTML)   
+
+    __handleEquals=e=>this.props.displayResult()
     render()
     {
         return  <div className="calc-input">        
@@ -43,6 +44,8 @@ class Input extends Component
     }
 }
 const mapDispatchToProps = dispatch=>({
-setOutput: digit=>dispatch(setOutput(digit))
+setOutput: digit=>dispatch(setOutput(digit)),
+pushOutput: sym=>dispatch(pushOutput(sym)),
+displayResult:() => dispatch(displayResult())
 }) 
 export default connect(null,mapDispatchToProps)(Input)
