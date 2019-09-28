@@ -1,0 +1,32 @@
+.calc-input
+{
+  display: grid;
+  grid-template-columns: auto auto auto auto; 
+}
+button{
+  padding:1rem;
+  font-family: Oxygen;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin:5px;
+  border-radius: 10px;
+}
+button.btn
+{
+  font-size: 0.8em;
+padding:0.5em 1em;
+} 
+button.night
+{
+    background-color: #666;
+    color:white;
+}
+button.day
+{
+    background-color: #f0f0f0;
+  color:black;
+}
+button sub,button sup
+{
+  font-weight: 700;
+}

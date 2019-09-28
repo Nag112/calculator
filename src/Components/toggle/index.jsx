@@ -4,8 +4,10 @@ class Toggle extends Component
 {
     render()
     {
+        let color="";
+        this.props.mode?(color="white"):(color="black")
         return  <div className="toggler">
-        <p>{this.props.name}</p>
+        <p style={{color:color}}>{this.props.name}</p>
         <label className="switch">
           <input type="checkbox" onChange={this.props.toggle}/>
           <span className="slider round"></span>

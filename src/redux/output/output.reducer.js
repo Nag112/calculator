@@ -2,8 +2,7 @@
 const init_state = {
   output: "",
   input: "",
-  numStack: [],
-  symStack: []
+  numStack: []
 };
 
 const outReducer = (state = init_state, action) => {
@@ -83,9 +82,9 @@ const outReducer = (state = init_state, action) => {
                     }
                 }
             } 
-            return {...init_state,numStack:[],output:result}
+            return {...state,numStack:[],output:result,input:result}
         }           
-        else return {...init_state,numStack:[]}
+        else return {...state,numStack:[]}
         }
     default:
       return state;

@@ -7,10 +7,8 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    output: "",
     scimode: false,
-    night: true,
-    stack: []
+    night: true
   };
 
   _toggleSciMode = e => {
@@ -25,44 +23,34 @@ class App extends Component {
     );
   };
 
-  __handleInput = e => {
-    if (e.target.innerHTML === "C") {
-      this.setState({ output: "", stack: [] });
-    } else {
-      let temp = this.state.output + e.target.innerHTML;
-      this.setState({ output: temp }, () => console.log(this.state));
-    }
-  };
-
-  __handleSymbol = e => {
-    if (this.state.output !== "") {
-      this.setState({ stack: [] });
-    }
-  };
-
-  __handleEquals = e => {
-    let temp;
-    this.state.output ? (temp = this.state.output) : (temp = "0");
-    this.setState({ output: temp });
-  };
   render() {
     var bgColor = "";
-    this.state.night === true ? (bgColor = "black") : (bgColor = "white");
+    var color=""
+    if(this.state.night)
+    {
+      bgColor = "black";
+      color="white"
+    }
+    else 
+    {
+      bgColor = "white";
+      color="black";
+    }
     return (
       <div className="calc-container" style={{ backgroundColor: bgColor }}>
-        <code>Simple Calcy</code>
+        <code style={{color:color}}>Simple Calcy</code>
         <div className="calc-body">
           <div className="toggle">
-            <Toggle name="Scientific mode" toggle={this._toggleSciMode} />
-            <Toggle name="Night mode" toggle={this._toggleNightmode} />
+            <Toggle mode={this.state.night} name="Scientific mode" toggle={this._toggleSciMode} />
+            <Toggle mode={this.state.night} name="Night mode" toggle={this._toggleNightmode} />
           </div>
           <Display />
           {
             this.state.scimode ? 
-            <Scimode /> 
+            <Scimode mode={this.state.night}/> 
             : <div className="blank"></div>
           }
-          <Input />
+          <Input mode={this.state.night}/>
         </div>
       </div>
     );
