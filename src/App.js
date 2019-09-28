@@ -8,7 +8,7 @@ import "./App.css";
 class App extends Component {
   state = {
     scimode: false,
-    night: true
+    night: false
   };
 
   _toggleSciMode = e => {

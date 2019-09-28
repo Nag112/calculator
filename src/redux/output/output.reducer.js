@@ -5,6 +5,52 @@ const init_state = {
   numStack: []
 };
 
+function cal(state)
+{
+    if(state.output!=="")                       
+    { 
+        state.numStack.push(state.input);            
+        let result= 'ans';            
+       while(state.numStack.length>0)
+       {                 console.log(state.numStack.length)
+            if(state.numStack.length<=2)
+            {
+                result=parseFloat(state.numStack.shift());
+            }
+            else
+            {
+                let var1=state.numStack.shift();
+            let sym = state.numStack.shift();
+            let var2 = state.numStack.shift();   
+            console.log(var1+sym+var2)     
+                switch(sym)
+                {
+                    case "+":
+                        result = parseFloat(var1)+parseFloat(var2);
+                        state.numStack.unshift(result);
+                        break;
+                    case "-":
+                        result = var1-var2;
+                        state.numStack.unshift(result);
+                        break;
+                    case "X":
+                        result = parseFloat(var1)*parseFloat(var2);
+                        state.numStack.unshift(result);
+                        break;        
+                    case "/":
+                        result = parseFloat(var1)/parseFloat(var2);
+                        state.numStack.unshift(result);
+                        break;                        
+                    default:
+                        break;
+                }
+            }
+        } 
+        return {...state,numStack:[],output:result,input:result}
+    }           
+    else return {...state,numStack:[]}
+}
+
 const outReducer = (state = init_state, action) => {
   switch (action.type) {
     case "update": {
@@ -43,49 +89,36 @@ const outReducer = (state = init_state, action) => {
     }
     case 'result':
         {            
-        if(state.output!=="")                       
-        { 
-            state.numStack.push(state.input);            
-            let result= 'ans';            
-           while(state.numStack.length>1)
-           {                 
-                if(state.numStack.length<=1)
-                {
-                    result=state.numStack.pop();
-                }
-                else
-                {
-                    let var1=state.numStack.shift();
-                let sym = state.numStack.shift();
-                let var2 = state.numStack.shift();   
-                console.log(var1+sym+var2)     
-                    switch(sym)
-                    {
-                        case "+":
-                            result = parseInt(var1)+parseInt(var2);
-                            state.numStack.unshift(result);
-                            break;
-                        case "-":
-                            result = var1-var2;
-                            state.numStack.unshift(result);
-                            break;
-                        case "X":
-                            result = parseInt(var1)*parseInt(var2);
-                            state.numStack.unshift(result);
-                            break;        
-                        case "/":
-                            result = parseInt(var1)/parseInt(var2);
-                            state.numStack.unshift(result);
-                            break;                        
-                        default:
-                            break;
-                    }
-                }
-            } 
-            return {...state,numStack:[],output:result,input:result}
-        }           
-        else return {...state,numStack:[]}
+           return cal(state);
         }
+        case 'flip':
+                {        let temp = cal(state); 
+                    if(temp.output!=="")                                
+                        {
+                            temp.output=-1*parseFloat(temp.output)
+                        temp.input=-1*parseFloat(temp.input)  }                                      
+                        return {...temp};
+                }
+              case 'sq':
+                  {
+                    let temp = cal(state);
+                    if(temp.output!=="")                                
+                    {
+                        temp.output=-1*parseFloat(temp.output)
+                        temp.input=-1*parseFloat(temp.input) 
+                     }  
+                     return {...temp};
+                  }
+              case 'sqrt':
+                  {
+                    let temp = cal(state);
+                    if(temp.output!=="")                                
+                    {
+                        temp.output=-1*parseFloat(temp.output)
+                         temp.input=-1*parseFloat(temp.input)  
+                        }  
+                     return {...temp};
+                  }     
     default:
       return state;
   }

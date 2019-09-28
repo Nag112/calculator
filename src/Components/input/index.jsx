@@ -11,8 +11,8 @@ class Input extends Component
 
     __handleEquals=e=>this.props.displayResult()
     render()
-    {   let className="day"
-        this.props.mode?(className="day"):(className="night")
+    {   let className=""
+        this.props.mode?(className="night"):(className="day")
         return  <div className="calc-input">        
         <button className={className}onClick={this.__handleInput}>7</button>
         <button className={className}onClick={this.__handleInput}>8</button>

@@ -11,3 +11,19 @@ export const displayResult = ()=>({
     type:'result',
     payload:''
 })
+export const sciMode = ()=>({
+    type:'scimode',
+    payload:''
+})
+export const flip = ()=>({
+    type:'flip',
+    payload:''
+})
+export const square = ()=>({
+    type:'sq',
+    payload:''
+})
+export const squareRoot = ()=>({
+    type:'sqrt',
+    payload:''
+})
