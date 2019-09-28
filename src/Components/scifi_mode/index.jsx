@@ -3,17 +3,17 @@ export default class Scimode extends Component
 {
     render()
     {
-        return  <Fragment>
+        return   <div className="calc-mode">
         <button className="btn">
           <sup>+</sup>/<sub>-</sub>
         </button>
         <button className="btn">
-          <i className="fas fa-square-root-alt"></i>
+          sqrt(x)
         </button>
         <button className="btn">
           <b>x</b>
           <sup>2</sup>
         </button>
-      </Fragment>
+      </div>
     }
 }

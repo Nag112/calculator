@@ -16,25 +16,18 @@
 .calc-body {
   color: #ffffff;
   border:2px solid whitesmoke;
+  border-radius: 20px;
   padding:1rem;
 }
-.calc-output
-{
-  display: flex;
-  width: 20vw;
-  background-color: rgba(31, 29, 29, 0.75);
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height:7vh;
-  padding:1rem;
-  border:1px solid whitesmoke;
-  margin-bottom: 25px;
-}
+
 .calc-mode
 {
-  display: grid;
-  grid-template-columns: auto auto auto auto; 
+  display: flex;
+  justify-content: space-evenly
+} 
+.blank
+{
+  height:9vh;
 }
 .calc-input
 {
@@ -49,11 +42,12 @@ button{
   font-weight: 500;
   font-size: 1.5rem;
   margin:5px;
+  border-radius: 10px;
 }
-button.btn-head
+button.btn
 {
-  font-size: 0.7em;
-  background-color: rgb(161, 156, 156);
+  font-size: 0.8em;
+padding:0.5em 1em;
 } 
 button sub,button sup
 {
