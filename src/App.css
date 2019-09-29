@@ -1,9 +1,5 @@
-:root {
-  --light-bg-color: white;
-  --dark-bg-color: black;
-}
+
 .calc-container {
-  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,9 +21,10 @@ overflow-x: hidden;
 .calc-mode
 {
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
+  height:8vh;
 } 
 .blank
 {
-  height:9vh;
+  height:8vh;
 }
